@@ -1,10 +1,9 @@
 use feather_m0::hal as hal;
-use usb_device;
 use usb_device::{
     bus::UsbBusAllocator,
     device::{UsbDevice, UsbDeviceBuilder, UsbVidPid},
 };
-use usbd_serial::SerialPort;
+use usbd_serial::{SerialPort, USB_CLASS_CDC};
 
 pub struct UsbManager {
     device: UsbDevice<'static, hal::usb::UsbBus>,
@@ -14,14 +13,12 @@ pub struct UsbManager {
 impl UsbManager {
     pub fn new(usb_bus: &'static UsbBusAllocator<hal::usb::UsbBus>) -> Self {
     
-        
         let serial = usbd_serial::SerialPort::new(usb_bus);
-
         let device = UsbDeviceBuilder::new(usb_bus, UsbVidPid(0x2E8A, 0x000a))
-            .manufacturer("Raspberry Pi")
-            .product("Pico")
-            .serial_number("TEST")
-            .device_class(2)
+            .manufacturer("Shulltronics")
+            .product("LoRa GPS Module")
+            .serial_number("0.0")
+            .device_class(USB_CLASS_CDC)
             .build();
 
         UsbManager { device, serial }

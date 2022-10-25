@@ -2,12 +2,10 @@
 name = "feather-rp2040-rtic-rs"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["Carsten Thue-Bludworth <carstentb@protonmail.com"]
 
 [dependencies]
-
-feather_m0              = "0.12.1"
+feather_m0              = {version = "0.12.1", features = ["usb"]}
 embedded-hal            = "0.2.7"
 panic-halt              = "0.2.0"
 cortex-m                = "0.7.2"

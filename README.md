@@ -11,3 +11,5 @@ Work-in-progress...
 * There is a `print` task that receives a `&'static str` and prints it to the console.
 * There is a `hearbeat` task that prints a message every 2 seconds to the serial port.
 * There is a `blink` task that blinks the on-board LED n times.
+
+* TODO: The USB serial port shows up nicely on Linux, but not on Windows via nRF Terminal.
